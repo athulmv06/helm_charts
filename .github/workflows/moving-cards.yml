@@ -136,7 +136,7 @@ jobs:
         if: |
           github.event.project_card.column_id != env.SOLVED_COLUMN_ID && github.event.project_card.column_id != env.BUILD_MAINTENANCE_COLUMN_ID &&
           (needs.get-issue.outputs.assignees == '[]' || github.event.action == 'created')
-        uses: pozil/auto-assign-issue@edee9537367a8fbc625d27f9e10aa8bad47b8723
+        uses: pozil/auto-assign-issue@c5bca5027e680b9e8411b826d16947afd8c76b32
         with:
           numOfAssignee: 1
           teams: ${{ github.event.project_card.column_id == env.BITNAMI_COLUMN_ID && env.SUPPORT_TEAM_NAME || env.TRIAGE_TEAM_NAME }}
@@ -148,7 +148,7 @@ jobs:
           github.event.action == 'moved' && needs.get-issue.outputs.assignees != '[]' &&
           github.event.project_card.column_id == env.IN_PROGRESS_COLUMN_ID &&
           github.event.changes.column_id.from == env.TRIAGE_COLUMN_ID
-        uses: pozil/auto-assign-issue@edee9537367a8fbc625d27f9e10aa8bad47b8723
+        uses: pozil/auto-assign-issue@c5bca5027e680b9e8411b826d16947afd8c76b32
         with:
           numOfAssignee: 1
           removePreviousAssignees: true
