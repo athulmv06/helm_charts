@@ -45,7 +45,7 @@ jobs:
           echo "type=${type}" >> $GITHUB_OUTPUT
       - name: Send to the board
         if: ${{steps.get-issue.outputs.author != 'bitnami-bot' || steps.get-issue.outputs.type != 'pull_request'}}
-        uses: peter-evans/create-or-update-project-card@dfa240db6fe287ceb681e45d6728c1af70452c58
+        uses: peter-evans/create-or-update-project-card@5080b5678f8c7ec52ae921288c341603b3790674
         with:
           project-name: Support
           # If the author comes from Bitnami, send it to Bitnami. Otherwise, all to Triage
