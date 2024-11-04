@@ -27,7 +27,7 @@ jobs:
         with:
           path: .github/workflows/
       - name: Move into From Build Maintenance
-        uses: peter-evans/create-or-update-project-card@dfa240db6fe287ceb681e45d6728c1af70452c58
+        uses: peter-evans/create-or-update-project-card@31dd7062f70525fc02d37374377387592f5da1a3
         # The comment was created by bitnami-bot in a pull_request created by bitnami-bot
         if: ${{ github.actor == 'bitnami-bot' && github.event.issue.user.login == 'bitnami-bot' && github.event.issue.pull_request != null }}
         with:
@@ -36,7 +36,7 @@ jobs:
           # Required to trigger moving-cards.yml workflow (clean labels and assign people to work on it)
           token: "${{ secrets.BITNAMI_BOT_TOKEN }}"
       - name: Move into Pending
-        uses: peter-evans/create-or-update-project-card@dfa240db6fe287ceb681e45d6728c1af70452c58
+        uses: peter-evans/create-or-update-project-card@31dd7062f70525fc02d37374377387592f5da1a3
         if: |
           (github.actor != 'bitnami-bot' || github.event.issue.user.login != 'bitnami-bot' || github.event.issue.pull_request == null) &&
           contains(fromJson(env.BITNAMI_TEAM), github.actor) &&
@@ -45,7 +45,7 @@ jobs:
           project-name: Support
           column-name: Pending
       - name: Move into In Progress
-        uses: peter-evans/create-or-update-project-card@dfa240db6fe287ceb681e45d6728c1af70452c58
+        uses: peter-evans/create-or-update-project-card@31dd7062f70525fc02d37374377387592f5da1a3
         if: |
           (github.actor != 'bitnami-bot' || github.event.issue.user.login != 'bitnami-bot' || github.event.issue.pull_request == null) &&
           (!contains(fromJson(env.BITNAMI_TEAM), github.actor)) &&
@@ -54,7 +54,7 @@ jobs:
           project-name: Support
           column-name: In progress
       - name: Move into Triage
-        uses: peter-evans/create-or-update-project-card@dfa240db6fe287ceb681e45d6728c1af70452c58
+        uses: peter-evans/create-or-update-project-card@31dd7062f70525fc02d37374377387592f5da1a3
         if: |
           (github.actor != 'bitnami-bot' || github.event.issue.user.login != 'bitnami-bot' || github.event.issue.pull_request == null) &&
           (!contains(fromJson(env.BITNAMI_TEAM), github.actor)) &&
