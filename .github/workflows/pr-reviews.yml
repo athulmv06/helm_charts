@@ -36,7 +36,7 @@ jobs:
       - name: Move into In Progress
         # Move the card only if the actor is not a Bitnami member
         if: ${{ !contains(fromJson(env.BITNAMI_TEAM), github.actor) }}
-        uses: peter-evans/create-or-update-project-card@dfa240db6fe287ceb681e45d6728c1af70452c58
+        uses: peter-evans/create-or-update-project-card@53405dcbc8cc9ef79e91227df20ab5485de5f44d
         with:
           project-name: Support
           column-name: In progress
